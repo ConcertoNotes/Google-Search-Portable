@@ -1,0 +1,35 @@
+{
+  "name": "desktop-search-widget",
+  "version": "0.1.0",
+  "description": "Global desktop search widget - Google search bar",
+  "author": "user",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.search.widget",
+    "productName": "Search Widget",
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "styles.css",
+      "renderer.js"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}

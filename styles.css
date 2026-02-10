@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  -webkit-app-region: no-drag;
+  user-select: none;
+}
+
+/* ── Optimized UI Styling ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background: transparent;
+}
+
+/* ── Google Logo (Typography) ── */
+.logo {
+  font-family: 'Product Sans', 'Roboto', arial, sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  cursor: default;
+  user-select: none;
+}
+.g1 { color: #4285F4; }
+.o1 { color: #EA4335; }
+.o2 { color: #FBBC05; }
+.g2 { color: #4285F4; }
+.l  { color: #34A853; }
+.e  { color: #EA4335; }
+
+/* ── Search Bar ── */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 52px; /* Taller touch target */
+  background: white;
+  border: 1px solid #dfe1e5;
+  border-radius: 26px; /* Pill shape */
+  padding: 0 16px;
+  box-shadow: 0 1px 3px rgba(32, 33, 36, 0.1); /* Subtle default shadow */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.search-bar:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(32, 33, 36, 0.15);
+  border-color: rgba(223, 225, 229, 0);
+  transform: translateY(-1px); /* Micro-interaction */
+}
+
+.search-bar:focus-within {
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(32, 33, 36, 0.2);
+  border-color: rgba(223, 225, 229, 0);
+  transform: translateY(-1px);
+}
+
+.search-icon {
+  flex-shrink: 0;
+  margin-right: 14px;
+  fill: #9aa0a6;
+  transition: fill 0.3s;
+}
+
+.search-bar:focus-within .search-icon {
+  fill: #4285F4; /* Active color */
+}
+
+#search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px; /* Larger, readable text */
+  line-height: 24px;
+  color: #202124;
+  background: transparent;
+  font-family: inherit;
+}
+
+#search-input::placeholder {
+  color: #9aa0a6;
+  opacity: 1; /* Firefox fix */
+}
