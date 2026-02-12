@@ -5,18 +5,57 @@
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none';">
   <link rel="stylesheet" href="styles.css">
-  <title>Search</title>
+  <title></title>
 </head>
 <body>
-  <div class="card">
-    <div class="logo">
-      <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+  <!-- Resize handles for frameless window -->
+  <div class="resize-handle resize-n"></div>
+  <div class="resize-handle resize-s"></div>
+  <div class="resize-handle resize-w"></div>
+  <div class="resize-handle resize-e"></div>
+  <div class="resize-handle resize-nw"></div>
+  <div class="resize-handle resize-ne"></div>
+  <div class="resize-handle resize-sw"></div>
+  <div class="resize-handle resize-se"></div>
+
+  <div id="app-container">
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="default">默认搜索</button>
+      <button class="tab-btn" data-tab="aggregate">聚合搜索</button>
     </div>
-    <div class="search-bar">
-      <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20">
-        <path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-      </svg>
-      <input type="text" id="search-input" autocomplete="off" spellcheck="false" autofocus>
+
+    <!-- Default Search View -->
+    <div id="view-default" class="view active">
+      <div class="card">
+        <div class="logo">
+          <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+        </div>
+        <div class="search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="search-input" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aggregate Search View -->
+    <div id="view-aggregate" class="view">
+      <div class="aggregate-header">
+        <div class="search-bar aggregate-search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="aggregate-input" autocomplete="off" spellcheck="false" placeholder="搜索 GitHub, StackOverflow, Reddit...">
+        </div>
+      </div>
+      <div id="results-container" class="results-container" style="display:none;">
+        <div id="results-sidebar" class="results-sidebar"></div>
+        <div id="results-content" class="results-content">
+          <div class="empty-state">输入关键词开始聚合搜索</div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="renderer.js"></script>

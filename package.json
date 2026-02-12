@@ -14,7 +14,8 @@
     "productName": "Search Widget",
     "electronDist": "node_modules/electron/dist",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "图标.png"
     },
     "nsis": {
       "oneClick": true,
@@ -28,6 +29,7 @@
       "renderer.js"
     ]
   },
+  "dependencies": {},
   "devDependencies": {
     "electron": "^35.0.0",
     "electron-builder": "^25.0.0"
